@@ -1,1 +1,4 @@
-alert("Hello!!");
+setTimeout(function (){
+	alert("Hello!!")},5000);
+
+alert("Qwerty");
