@@ -40,7 +40,7 @@ public class HelloWorld {
         
         Thread.sleep(5000);
         
-        WebElement bookOneLink = driver.findElement(By.xpath(".//*[@id='masters']/div[5]/div[3]/ul[1]/li[1]/div/div[4]/a"));
+        WebElement bookOneLink = driver.findElement(By.xpath(".//*[@id='original_wrapper']/div/div[4]/a"));
         bookOneLink.click();
         
         System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
@@ -48,6 +48,31 @@ public class HelloWorld {
                 "var endTiming = performance.timing.loadEventEnd;"+
                 "return (endTiming - startTiming) + 'ms';"));
         
+        Thread.sleep(5000);
+        
+        WebElement chapterOneLink = driver.findElement(By.xpath(".//*[@id='lpn_list_area']/ul/li[1]/div/div[2]/h3/a"));
+        chapterOneLink.click();
+        
+        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
+                "var startTiming = performance.timing.requestStart;"+
+                "var endTiming = performance.timing.responseEnd;"+
+                "return (endTiming - startTiming) + 'ms';"));
+        
+        Thread.sleep(5000);
+        
+        WebElement chapterOneOpen = driver.findElement(By.xpath(".//*[@id='lpn_list_area']/ul/li/div/div[2]/h3/a"));
+        chapterOneOpen.click();
+        
+        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
+                "var startTiming = performance.timing.domLoading;"+
+                "var endTiming = performance.timing.domComplete;"+
+                "return (endTiming - startTiming) + 'ms';"));
+
+        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
+                "var startTiming = performance.timing.domLoading;"+
+                "var endTiming = performance.timing.loadEventEnd;"+
+                "return (endTiming - startTiming) + 'ms';"));
+
     }
 }
 
