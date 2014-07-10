@@ -72,7 +72,7 @@ public class HelloWorld {
         
         Thread.sleep(5000);
 
-        WebElement moduleOpen = driver.findElement(By.xpath(".//*[@id='chapterOutline']/ul/li[1]/a"));
+        WebElement moduleOpen = driver.findElement(By.xpath(".//*[@id='chapterOutline']/ul/li[5]/ul/li[1]/span/a"));
         moduleOpen.click();
         
         System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 

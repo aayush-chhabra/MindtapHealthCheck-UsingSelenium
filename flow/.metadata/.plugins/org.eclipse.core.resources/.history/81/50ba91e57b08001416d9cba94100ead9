@@ -69,11 +69,7 @@ public class HelloWorld {
                 "var startTiming2 = performance.timing.domLoading;"+
                 "var endTiming2 = performance.timing.loadEventEnd;"+
                 "return ((endTiming - startTiming) + (endTiming2 - startTiming2) ) + 'ms';"));
-        
-        Thread.sleep(5000);
 
-        WebElement moduleOpen = driver.findElement(By.xpath(".//*[@id='chapterOutline']/ul/li[1]/a"));
-        moduleOpen.click();
         
         System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
                 "var startTiming = performance.timing.unloadEventStart;;"+

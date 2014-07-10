@@ -70,9 +70,9 @@ public class HelloWorld {
                 "var endTiming2 = performance.timing.loadEventEnd;"+
                 "return ((endTiming - startTiming) + (endTiming2 - startTiming2) ) + 'ms';"));
         
-        Thread.sleep(5000);
+        Thread.sleep(10000);
 
-        WebElement moduleOpen = driver.findElement(By.xpath(".//*[@id='chapterOutline']/ul/li[1]/a"));
+        WebElement moduleOpen = driver.findElement(By.xpath(".//*[@id='chapterOutline']/ul/li[5]/ul/li[1]/span/a"));
         moduleOpen.click();
         
         System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
