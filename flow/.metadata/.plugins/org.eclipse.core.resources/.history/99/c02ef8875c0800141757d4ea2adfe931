@@ -1,0 +1,32 @@
+
+import java.io.*;
+import java.util.*;
+import javax.script.*;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class HelloWorld {
+    public static void main(String[] args) throws Exception {
+        // The Firefox driver supports javascript 
+        WebDriver driver = new FirefoxDriver();
+    		
+        // Go to the Google Suggest home page
+        driver.get("http://qae-ng.cengage.com/static/nb/login.html");
+        
+        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
+                "var startTiming = performance.timing.navigationStart;"+
+                "var endTiming = performance.timing.loadEventEnd;"+
+                "return (endTiming - startTiming) + 'ms';"));
+        
+        // Enter the query string "Cheese"
+//        WebElement query = driver.findElement(By.name("q"));
+//        query.sendKeys("Cheese");
+//
+//        WebElement searchButton = driver.findElement(By.id("gbqfb"));
+//        searchButton.click();
+        
+        driver.quit();
+       
+    }
+}
