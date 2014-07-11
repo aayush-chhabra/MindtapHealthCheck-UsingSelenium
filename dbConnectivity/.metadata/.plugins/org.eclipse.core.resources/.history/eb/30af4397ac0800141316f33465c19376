@@ -1,0 +1,11 @@
+package mongodbConnectivity;
+
+import com.mongodb.MongoClient;
+
+public class DbConnectivity {
+
+	public static void main(String[] args) {
+		MongoClient mongoclient = new MongoClient();
+	}
+
+}

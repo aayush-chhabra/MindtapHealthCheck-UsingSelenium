@@ -1,0 +1,9 @@
+package mongodbConnectivity;
+
+public class DbConnectivity {
+
+	public static void main(String[] args) {
+		
+	}
+
+}
