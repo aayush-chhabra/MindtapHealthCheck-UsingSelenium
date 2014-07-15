@@ -156,10 +156,39 @@ function createHAR(address, title, startTime, resources)
     	casper.start();
 
     	casper.then(function(){
-    		
     		this.echo(this.getCurrentUrl());
+			this.sendKeys({
+		        type: 'xpath',
+		        path: ".//*[@id='_username_id']"
+		    }, 'sanat.chugh@cengage.com');
+		    
+		    this.sendKeys({
+		        type: 'xpath',
+		        path: ".//*[@id='_password_id']"
+		    }, 'Cengage1');
 
+
+		});
+
+    	casper.then(function(){
+    		this.capture('google.png', {
+		        top: 100,
+		        left: 100,
+		        width: 500,
+		        height: 400
+    		});
     	});
+    	
+		casper.then(function(){
+		 	this.click({
+		        type: 'xpath',
+		        path: ".//*[@id='loginForm']/div/div[2]/p/input"
+		    });
+		});
+
+		casper.then(function(){
+			this.echo(this.getCurrentUrl());
+		});
 
 
 		casper.run(function(){
