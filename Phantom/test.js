@@ -143,20 +143,30 @@ function createHAR(address, title, startTime, resources)
         }
     });
 
+    
     webPage.onLoadFinished = function(status) {
+    	
     	var casper = require('casper').create({
 			page: webPage,
 			verbose: true
 		});
-		console.log(casper);
-		// casper.start(webPage, function(){
-		// 	console.log("Hello1");
-		// });
-		// //console.log("Hello");
-		// casper.then(function(){
-		// 	console.log("Hello2");
-		// });
-		phantom.exit();
+    	casper.options.page = webPage;
+    	casper.options.page.address = webPage.address;
+
+    	casper.start();
+
+    	casper.then(function(){
+    		
+    		this.echo(this.getCurrentUrl());
+
+    	});
+
+
+		casper.run(function(){
+			phantom.exit();
+			casper.exit();
+		});
+		
     }
 
 
