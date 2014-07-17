@@ -1,0 +1,15 @@
+import java.io.*;
+import java.util.*;
+
+import javax.script.*;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class ProjectGhost {
+    public static void main(String[] args) throws Exception {
+    	
+    }
+}
+
+    	

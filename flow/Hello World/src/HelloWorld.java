@@ -12,7 +12,7 @@ public class HelloWorld {
     	
     	try
     	{
-    	// The Firefox driver supports javascript 
+    	// The Firefox driver supports javascript  
         WebDriver driver = new FirefoxDriver();
     		
         // Go to the Google Suggest home page
@@ -44,7 +44,7 @@ public class HelloWorld {
         
         Thread.sleep(5000);
         
-        WebElement bookOneLink = driver.findElement(By.xpath(".//*[@id='original_wrapper']/div/div[4]/a"));
+        WebElement bookOneLink = driver.findElement(By.xpath(".//*[@id='masters']/div[5]/div[3]/ul[1]/li[1]/div/div[4]/a"));
         bookOneLink.click();
         
         System.out.print("CLICKING ON A BOOK FROM MASTER AND LANDING UP IN MINDTAP : ");
@@ -57,7 +57,7 @@ public class HelloWorld {
         
         Thread.sleep(5000);
         
-        WebElement chapterOneLink = driver.findElement(By.xpath(".//*[@id='lpn_list_area']/ul/li[1]/div/div[2]/h3/a"));
+        WebElement chapterOneLink = driver.findElement(By.xpath(".//*[@id='lpn_list_area']/ul/li/div/div[2]/h3/a"));
         chapterOneLink.click();
         
         System.out.print("CLICKING ON A CHAPTER : ");
@@ -68,74 +68,23 @@ public class HelloWorld {
         
         Thread.sleep(5000);
         
-        WebElement chapterOneOpen = driver.findElement(By.xpath(".//*[@id='lpn_list_area']/ul/li/div/div[2]/h3/a"));
+        WebElement chapterOneOpen = driver.findElement(By.xpath(".//*[@id='app_view_flash_cards']/img"));
         chapterOneOpen.click();
         
-        System.out.print("OPENING A CHAPTER: ");
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" +
-        		"var startTiming = performance.timing.unloadEventStart;"+
+        System.out.print("OPENING FLASHCARDS: ");
+        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
+                "var startTiming = performance.timing.unloadEventStart;"+
                 "var endTiming = performance.timing.unloadEventEnd;"+
+                "var startTiming1 = performance.timing.requestStart;"+
+                "var endTiming1 = performance.timing.responseStart;"+
                 "var startTiming2 = performance.timing.domLoading;"+
-                "var endTiming2 = performance.timing.loadEventEnd;"+
-                "return ((endTiming - startTiming) + (endTiming2 - startTiming2) ) + 'ms';"));
-        
-        Thread.sleep(5000);
-
-	// This is failing as of now
-        WebElement moduleOpen = driver.findElement(By.xpath(".//*[@id='chapterOutline']/ul/li[1]/a"));
-        moduleOpen.click();
-       
-        System.out.print("OPENING A MODULE : ");
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
-                "var startTiming = performance.timing.unloadEventStart;;"+
-                "var endTiming = performance.timing.unloadEventEnd;"+
-                "return (endTiming - startTiming) + 'ms';"));
-
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
-                "var startTiming = performance.timing.linkNegotiationStart;"+
-                "var endTiming = performance.timing.linkNegotiationEnd;"+
-                "return (endTiming - startTiming) + 'ms';"));
-        
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
-                "var startTiming = performance.timing.redirectStart;"+
-                "var endTiming = performance.timing.redirectEnd;"+
-                "return (endTiming - startTiming) + 'ms';"));
-        
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
-                "var startTiming = performance.timing.fetchStart;"+
-                "var endTiming = performance.timing.domainLookupStart;"+
-                "return (endTiming - startTiming) + 'ms';"));
-
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
-                "var startTiming = performance.timing.domainLookupStart;"+
-                "var endTiming = performance.timing.domainLookupEnd;"+
-                "return (endTiming - startTiming) + 'ms';"));
-        
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
-                "var startTiming = performance.timing.connectStart;"+
-                "var endTiming = performance.timing.connectEnd;"+
-                "return (endTiming - startTiming) + 'ms';"));
-        
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
-                "var startTiming = performance.timing.requestStart;"+
-                "var endTiming = performance.timing.responseStart;"+
-                "return (endTiming - startTiming) + 'ms';"));
-
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
-                "var startTiming = performance.timing.responseStart;"+
-                "var endTiming = performance.timing.responseEnd;"+
-                "return (endTiming - startTiming) + 'ms';"));
-
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
-                "var startTiming = performance.timing.domLoading;"+
-                "var endTiming = performance.timing.domComplete;;"+
-                "return (endTiming - startTiming) + 'ms';"));
-
-        System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
-                "var startTiming = performance.timing.loadEventStart;"+
-                "var endTiming = performance.timing.loadEventEnd;;"+
-                "return (endTiming - startTiming) + 'ms';"));
-
+                "var endTiming2 = performance.timing.domComplete;"+
+                "var startTiming3 = performance.timing.domContentLoadedEventStart;"+
+                "var endTiming3 = performance.timing.domContentLoadedEventEnd;"+
+                "var startTiming4 = performance.timing.loadEventStart;"+
+                "var endTiming4 = performance.timing.loadEventEnd;"+
+                "return (endTiming - startTiming) + (endTiming1 - startTiming1) "
+                + "+ (endTiming2 - startTiming2) + (endTiming3 - startTiming3) + (endTiming4 - startTiming4) + 'ms';"));
     	}
     	catch(Exception e)
     	{
