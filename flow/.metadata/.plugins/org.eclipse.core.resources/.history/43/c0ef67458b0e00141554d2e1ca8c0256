@@ -6,18 +6,17 @@ import javax.script.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ProjectGhost{ 
+public class ProjectGhost{
     public static void main(String[] args) throws Exception {
     	
     	try
     	{
     	// The Firefox driver supports javascript  
         WebDriver driver = new FirefoxDriver();
-    	
-        
+    		
         driver.get("https://login.cengage.com/");
         
-        System.out.println("LOGIN PAGE LOADING -- ");
+        System.out.print("LOGIN PAGE LOADING: ");
         System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
                 "var startTiming0 = performance.timing.navigationStart;"+
                 "var endTiming0 = performance.timing.loadEventEnd;"+
@@ -55,7 +54,6 @@ public class ProjectGhost{
         System.out.println(((JavascriptExecutor)driver).executeScript("var startTiming11 = performance.timing.unloadEventStart;"+
                 "var endTiming11 = performance.timing.unloadEventEnd;"+
                 "return 'Unload Event: ' + (endTiming11 - startTiming11) + 'ms';"));
-        
         
         Thread.sleep(5000);
         
