@@ -14,13 +14,6 @@ import com.mongodb.MongoClient;
 
 public class DbConnectivity {
 
-	
-	public static void main(String[] args){
-		
-	}
-	
-	
-	
 //	public static void main(String[] args) throws UnknownHostException {
 //		MongoClient mongoclient = new MongoClient("localhost", 27017);
 //		

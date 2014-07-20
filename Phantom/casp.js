@@ -11,6 +11,8 @@ var webPage = require('webpage').create(),
 
 var links = [];
 var linksOpenTime = [];
+var lpnOnThePage = [];
+var mindAppsOnThePage = [];
 var StartTime;
 
 if (!Date.prototype.toISOString) {
@@ -190,7 +192,19 @@ function pageLoad(){
 
     casper.then(function(){
 
-        
+        var linkToBeClicked = (Math.floor(Math.ramdom()*100)) % links.length;
+        console.log(linkToBeClicked, links.length);
+
+        // this.thenOpen(links[linkToBeClicked], function(){
+        //     casper.waitUntilVisible(".thumbBar", function() {
+        //         this.evaluate(function() {
+        //             lpnOnThePage = __utils__.findAll('.title');
+        //             console.log(lpnOnThePage);
+        //         });
+        //     });
+
+        // });
+
 
     });
 
