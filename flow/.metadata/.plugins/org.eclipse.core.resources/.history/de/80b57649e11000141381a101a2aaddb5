@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+import java.lang.Object.*;
+
+import javax.script.*;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class ResourceTiming{ 
+    public static void main(String[] args) throws Exception {
+    	
+    	try
+    	{
+    		WebDriver driver = new RemoteWebDriver(DesiredCapabilities.chrome());
+    		driver.get("http://www.google.com");
+    	}
+    	catch(Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+    }
+}
+

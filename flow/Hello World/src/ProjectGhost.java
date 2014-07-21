@@ -4,20 +4,35 @@ import java.util.*;
 import javax.script.*;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class ProjectGhost{ 
     public static void main(String[] args) throws Exception {
     	
     	try
     	{
-    	// The Firefox driver supports javascript  
-        WebDriver driver = new FirefoxDriver();
-    	
-        
-        driver.get("https://login.cengage.com/");
+    		
+    	System.setProperty("webdriver.chrome.driver", "//Users/mindtap/Desktop/Selenium1/chromedriver");
+   	
+    	ChromeOptions options = new ChromeOptions();
+    	options.addArguments("-incognito");
+    	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+    	capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+    	WebDriver driver = new ChromeDriver(capabilities);
+    	driver.get("https://login.cengage.com/");
         
         System.out.println("LOGIN PAGE LOADING -- ");
+        
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+             
+//      								       					NAVIGATION TIMING API:
+        
+        System.out.println("NAVIGATION TIMING API:");
         System.out.println(((JavascriptExecutor)driver).executeScript("var performance = window.performance || {};" + 
                 "var startTiming0 = performance.timing.navigationStart;"+
                 "var endTiming0 = performance.timing.loadEventEnd;"+
@@ -56,6 +71,39 @@ public class ProjectGhost{
                 "var endTiming11 = performance.timing.unloadEventEnd;"+
                 "return 'Unload Event: ' + (endTiming11 - startTiming11) + 'ms';"));
         
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------------------
+        
+// 								       					RESOURCE TIMING API:
+
+        
+        System.out.println("\nRESOURCE TIMING API:");
+        System.out.println(((JavascriptExecutor)driver).executeScript("var resourceList = window.performance.getEntriesByType('resource') || {};"+
+        		"var startTiming0 = resourceList[0].redirectStart;"+
+        		"var endTiming0 = resourceList[0].redirectEnd;"+
+        		"return 'Redirect Time: ' + (endTiming0 - startTiming0) + 'ms'"));
+        System.out.println(((JavascriptExecutor)driver).executeScript("var resourceList = window.performance.getEntriesByType('resource') || {};"+
+        		"var startTiming1 = resourceList[0].fetchStart;"+
+        		"var endTiming1 = resourceList[0].domainLookupStart;"+
+        		"return 'App Cache Time: ' + (endTiming1 - startTiming1) + 'ms'"));
+        System.out.println(((JavascriptExecutor)driver).executeScript("var resourceList = window.performance.getEntriesByType('resource') || {};"+
+        		"var startTiming2 = resourceList[0].domainLookupStart;"+
+        		"var endTiming2 = resourceList[0].domainLookupEnd;"+
+        		"return 'DNS Time: ' + (endTiming2 - startTiming2) + 'ms'"));
+        System.out.println(((JavascriptExecutor)driver).executeScript("var resourceList = window.performance.getEntriesByType('resource') || {};"+
+        		"var startTiming3 = resourceList[0].connectStart;"+
+        		"var endTiming3 = resourceList[0].connectEnd;"+
+        		"return 'TCP Time: ' + (endTiming3 - startTiming3) + 'ms'"));
+        System.out.println(((JavascriptExecutor)driver).executeScript("var resourceList = window.performance.getEntriesByType('resource') || {};"+
+        		"var startTiming4 = resourceList[0].requestStart;"+
+        		"var endTiming4 = resourceList[0].responseStart;"+
+        		"return 'Request Time: ' + ((endTiming4 - startTiming4).toFixed(2)) + 'ms'"));
+        System.out.println(((JavascriptExecutor)driver).executeScript("var resourceList = window.performance.getEntriesByType('resource') || {};"+
+        		"var startTiming5 = resourceList[0].responseStart;"+
+        		"var endTiming5 = resourceList[0].responseEnd;"+
+        		"return 'Response Time: ' + ((endTiming5 - startTiming5).toFixed(2)) + 'ms'"));
         
         Thread.sleep(5000);
         

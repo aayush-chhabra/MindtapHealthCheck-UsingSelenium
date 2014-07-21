@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+import java.lang.Object.*;
+
+import javax.script.*;
+
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+public class ResourceTiming{ 
+    public static void main(String[] args) throws Exception {
+    	
+    	try
+    	{	
+    		System.setProperty("webdriver.chrome.driver", "//Users/mindtap/Desktop/Selenium1/chromedriver");
+    		WebDriver driver = new ChromeDriver();
+    		driver.get("http://www.google.com/xhtml");
+            System.out.println(((JavascriptExecutor)driver).executeScript("var resourceList = window.performance.getEntriesByType('resource');"+
+            		"for (i = 0; i < resourceList.length; i++) {" +
+                    "if (resourceList[i].initiatorType == 'img') "
+                    + "{ alert('End to end resource fetch: '+ resourceList[i].responseEnd - resourceList[i].startTime);}}")); 
+    		
+    	}
+    	catch(Exception e)
+    	{
+    		e.printStackTrace();
+    	}
+    }
+}
+
