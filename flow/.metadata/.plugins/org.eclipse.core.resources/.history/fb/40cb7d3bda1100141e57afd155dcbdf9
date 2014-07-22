@@ -39,6 +39,9 @@ public class driver{
 					"var startTiming0 = performance.timing.navigationStart;"+
 					"var endTiming0 = performance.timing.loadEventEnd;"+
 					"return 'TotalTime: ' + (endTiming0 - startTiming0);"));
+			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming1 = performance.timing.redirectStart;"+
+					"var endTiming1 = performance.timing.navigationStart;"+
+					"return 'StartToRedirectTime: ' + (endTiming1 - startTiming1);"));
 			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming2 = performance.timing.redirectStart;"+
 					"var endTiming2 = performance.timing.redirectEnd;"+
 					"return 'redirectTiming: ' + (endTiming2 - startTiming2);"));
@@ -128,6 +131,9 @@ public class driver{
 					"var startTiming0 = performance.timing.navigationStart;"+
 					"var endTiming0 = performance.timing.loadEventEnd;"+
 					"return 'TotalTime: ' + (endTiming0 - startTiming0);"));
+			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming1 = performance.timing.navigationStart;"+
+					"var endTiming1 = performance.timing.redirectStart;"+
+					"return 'StartToRedirectTime: ' + (endTiming1 - startTiming1);"));
 			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming2 = performance.timing.redirectStart;"+
 					"var endTiming2 = performance.timing.redirectEnd;"+
 					"return 'redirectTiming: ' + (endTiming2 - startTiming2);"));
@@ -213,6 +219,9 @@ public class driver{
 					"var startTiming0 = performance.timing.navigationStart;"+
 					"var endTiming0 = performance.timing.loadEventEnd;"+
 					"return 'TotalTime: ' + (endTiming0 - startTiming0);"));
+			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming1 = performance.timing.navigationStart;"+
+					"var endTiming1 = performance.timing.redirectStart;"+
+					"return 'StartToRedirectTime: ' + (endTiming1 - startTiming1);"));
 			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming2 = performance.timing.redirectStart;"+
 					"var endTiming2 = performance.timing.redirectEnd;"+
 					"return 'redirectTiming: ' + (endTiming2 - startTiming2);"));
@@ -295,6 +304,9 @@ public class driver{
 					"var startTiming0 = performance.timing.navigationStart;"+
 					"var endTiming0 = performance.timing.loadEventEnd;"+
 					"return 'TotalTime: ' + (endTiming0 - startTiming0);"));
+			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming1 = performance.timing.navigationStart;"+
+					"var endTiming1 = performance.timing.redirectStart;"+
+					"return 'StartToRedirectTime: ' + (endTiming1 - startTiming1);"));
 			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming2 = performance.timing.redirectStart;"+
 					"var endTiming2 = performance.timing.redirectEnd;"+
 					"return 'redirectTiming: ' + (endTiming2 - startTiming2);"));
@@ -377,6 +389,9 @@ public class driver{
 					"var startTiming0 = performance.timing.navigationStart;"+
 					"var endTiming0 = performance.timing.loadEventEnd;"+
 					"return 'TotalTime: ' + (endTiming0 - startTiming0);"));
+			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming1 = performance.timing.navigationStart;"+
+					"var endTiming1 = performance.timing.redirectStart;"+
+					"return 'StartToRedirectTime: ' + (endTiming1 - startTiming1);"));
 			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming2 = performance.timing.redirectStart;"+
 					"var endTiming2 = performance.timing.redirectEnd;"+
 					"return 'redirectTiming: ' + (endTiming2 - startTiming2);"));
@@ -459,6 +474,9 @@ public class driver{
 					"var startTiming0 = performance.timing.navigationStart;"+
 					"var endTiming0 = performance.timing.loadEventEnd;"+
 					"return 'TotalTime: ' + (endTiming0 - startTiming0);"));
+			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming1 = performance.timing.navigationStart;"+
+					"var endTiming1 = performance.timing.redirectStart;"+
+					"return 'StartToRedirectTime: ' + (endTiming1 - startTiming1);"));
 			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming2 = performance.timing.redirectStart;"+
 					"var endTiming2 = performance.timing.redirectEnd;"+
 					"return 'redirectTiming: ' + (endTiming2 - startTiming2);"));
@@ -529,7 +547,7 @@ public class driver{
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 
 			System.out.println("OPEN NEXT FLASHCARD: \n");
-			Thread.sleep(3000);
+			Thread.sleep(1000);
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 			//    	      								         NAVIGATION TIMING API:
@@ -539,6 +557,9 @@ public class driver{
 					"var startTiming0 = performance.timing.navigationStart;"+
 					"var endTiming0 = performance.timing.loadEventEnd;"+
 					"return 'TotalTime: ' + (endTiming0 - startTiming0);"));
+			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming1 = performance.timing.navigationStart;"+
+					"var endTiming1 = performance.timing.redirectStart;"+
+					"return 'StartToRedirectTime: ' + (endTiming1 - startTiming1);"));
 			System.out.println(((JavascriptExecutor)ghostdriver).executeScript("var startTiming2 = performance.timing.redirectStart;"+
 					"var endTiming2 = performance.timing.redirectEnd;"+
 					"return 'redirectTiming: ' + (endTiming2 - startTiming2);"));
