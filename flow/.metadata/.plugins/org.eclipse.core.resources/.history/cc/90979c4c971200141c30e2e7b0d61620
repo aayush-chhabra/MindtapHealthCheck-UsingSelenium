@@ -288,9 +288,8 @@ public class driver{
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 			
 			List<WebElement> chapterLinks  = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("lpn_thumbTitle")));
-			System.out.println(chapterLinks);
 			Random randomChapter = new Random();
-			chapterLinks.get(randomChapter.nextInt((chapterLinks.size()))).click();
+			chapterLinks.get(randomChapter.nextInt((chapterLinks.size()-1))).click();
 			System.out.println("------------------------------------------------------------------------------------------------ \n");
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------

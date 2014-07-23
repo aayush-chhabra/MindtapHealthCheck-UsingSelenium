@@ -210,7 +210,6 @@ public class driver{
 			System.out.println("OPEN BOOK TIMINGS: \n");
 			ArrayList<String> tabs = new ArrayList<String> (ghostdriver.getWindowHandles());
 			ghostdriver.switchTo().window(tabs.get(1));
-			Thread.sleep(5000);
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 			//    	      								         NAVIGATION TIMING API:
@@ -288,9 +287,8 @@ public class driver{
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 			
 			List<WebElement> chapterLinks  = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("lpn_thumbTitle")));
-			System.out.println(chapterLinks);
 			Random randomChapter = new Random();
-			chapterLinks.get(randomChapter.nextInt((chapterLinks.size()))).click();
+			chapterLinks.get(randomChapter.nextInt(chapterLinks.size())).click();
 			System.out.println("------------------------------------------------------------------------------------------------ \n");
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -375,8 +373,8 @@ public class driver{
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 
 			List<WebElement> subChapterLinks  = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("lpn_thumbTitle")));
-			Random randomSubChapter = new Random();
-			subChapterLinks.get(randomSubChapter.nextInt(subChapterLinks.size())).click();
+			Random randomsubChapter = new Random();
+			chapterLinks.get(randomsubChapter.nextInt(subChapterLinks.size())).click();
 			System.out.println("------------------------------------------------------------------------------------------------ \n");
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------

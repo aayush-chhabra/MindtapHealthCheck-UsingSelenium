@@ -108,14 +108,17 @@ public class driver{
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 
 			//Query and fill Username
-			WebElement usernameQuery = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='emailId']")));
+			WebElement usernameQuery = (new WebDriverWait(ghostdriver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='emailId']")));
+//			WebElement usernameQuery = ghostdriver.findElement(By.xpath(".//*[@id='emailId']"));
+//			System.out.println(loginPageWait);
+//			System.out.println(usernameQuery); 
 			usernameQuery.sendKeys("mockgeyser.slave@gmail.com");
 
 			//Query and fill Password
-			WebElement passwordQuery = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='password']")));
+			WebElement passwordQuery = ghostdriver.findElement(By.xpath(".//*[@id='password']"));
 			passwordQuery.sendKeys("DASHBOARD1234");
 
-			WebElement loginButton = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='loginFormId']/input[3]")));
+			WebElement loginButton = ghostdriver.findElement(By.xpath(".//*[@id='loginFormId']/input[3]"));
 			loginButton.click();
 			System.out.println("------------------------------------------------------------------------------------------------ \n");
 
@@ -199,18 +202,20 @@ public class driver{
 					"return 'Response Time: ' + ((endTiming5 - startTiming5).toFixed(2))"));
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
-			
-			List<WebElement> courseLinks = ghostdriver.findElements(By.className("viewDetailsBtn"));
-			courseLinks.get(0).click();	
+
+			WebElement courseOpenLink1 = ghostdriver.findElement(By.className("viewDetailsBtn"));
+			courseOpenLink1.click();	
 			System.out.println("------------------------------------------------------------------------------------------------ \n");
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 
 			System.out.println("OPEN BOOK TIMINGS: \n");
+			Thread.sleep(500);
+
 			ArrayList<String> tabs = new ArrayList<String> (ghostdriver.getWindowHandles());
-			ghostdriver.switchTo().window(tabs.get(1));
-			Thread.sleep(5000);
+			ghostdriver.switchTo().window(tabs.get(1)); 
+			Thread.sleep(8000);
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 			//    	      								         NAVIGATION TIMING API:
@@ -286,11 +291,10 @@ public class driver{
 					"return 'Response Time: ' + ((endTiming5 - startTiming5).toFixed(2))"));
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
-			
-			List<WebElement> chapterLinks  = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("lpn_thumbTitle")));
-			System.out.println(chapterLinks);
-			Random randomChapter = new Random();
-			chapterLinks.get(randomChapter.nextInt((chapterLinks.size()))).click();
+
+
+			WebElement chapterOpenLink1 = ghostdriver.findElement(By.className("lpn_thumbTitle"));
+			chapterOpenLink1.click();
 			System.out.println("------------------------------------------------------------------------------------------------ \n");
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -374,9 +378,9 @@ public class driver{
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 
-			List<WebElement> subChapterLinks  = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("lpn_thumbTitle")));
-			Random randomSubChapter = new Random();
-			subChapterLinks.get(randomSubChapter.nextInt(subChapterLinks.size())).click();
+
+			WebElement chapterOpenLink2 = ghostdriver.findElement(By.className("lpn_thumbTitle"));
+			chapterOpenLink2.click();
 			System.out.println("------------------------------------------------------------------------------------------------ \n");
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
