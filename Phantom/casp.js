@@ -191,26 +191,25 @@ function pageLoad(){
     });
 
     casper.then(function(){
-
-        var linkToBeClicked = (Math.floor(Math.ramdom()*100)) % links.length;
-        console.log(linkToBeClicked, links.length);
-
-        // this.thenOpen(links[linkToBeClicked], function(){
-        //     casper.waitUntilVisible(".thumbBar", function() {
-        //         this.evaluate(function() {
-        //             lpnOnThePage = __utils__.findAll('.title');
-        //             console.log(lpnOnThePage);
-        //         });
-        //     });
-
-        // });
+        StartTime = new Date().getTime();
+        this.thenOpen(links[0],function(){
+            casper.waitUntilVisible(".lpn_name a", function() {
+                var currentURL = casper.getCurrentUrl();
+                this.thenClick(".lpn_name a");
+                casper.wait(350,function check(){
+                        
+                });
+            });
+            this.capture('google1.png');//, this.getElementBounds(".lpn_stacklist")); 
+        });
 
 
     });
 
 
     casper.run();
-}
+    }
+
 
 
 

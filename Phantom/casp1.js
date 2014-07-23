@@ -9,6 +9,7 @@ var webPage = require('webpage').create(),
     system = require('system'),
     casper = require('casper').create();
 var utils = require('utils');
+var startTime, endTime;
 
     casper.on('remote.message', function(message) {
     	console.log(message);
@@ -40,63 +41,83 @@ var utils = require('utils');
             });
 
     
-    casper.waitUntilVisible(x(".//*[@id='masters']/div[5]/div[3]/ul[1]/li[1]/div/div[4]/a"), function() {
+    casper.waitUntilVisible(".title", function() {
 
             //have been calculating the time till this step in casp.js
 
             //now calculating time to open a reading activity.
 
-    		this.thenClick(x(".//*[@id='masters']/div[5]/div[3]/ul[1]/li[1]/div/div[4]/a")).thenEvaluate(function(){
-                console.log("a");
-            });
-
-    		casper.waitUntilVisible(".lpn_name", function() {
-
-	          //       this.evaluate(function() {
-	          //           lpnOnThePage = __utils__.findAll('.lpn_name a');
-	          //           console.log(lpnOnThePage);
-
-	        		// });
-
-    		// var href = this.evaluate(function() {
-		    //     return __utils__.findOne('.lpn_name a').getAttribute('href');
-		    // });
-
-    		this.capture('google.png', this.getElementBounds(".lpn_stacklist"));
-
-            var firstRow = this.evaluate(function () {
-                var elements = __utils__.findAll('.lpn_name a');
-                return [].map.call(elements, function(element) {
-                    return element.outerHTML;
-                });
-            });
-
-            //utils.dump(firstRow);
-            console.log(firstRow);
-
-
-
-		    this.thenClick(".lpn_name a");
-
-		    
-
-    		
-    			// console.log("passed!!");
-    		casper.wait(1000,function(){
-        		
-                this.capture('google1.png', this.getElementBounds(".lpn_stacklist")); 
-			
-            });
-    		
+    		  this.thenClick(".title");//.thenEvaluate(function(){
+                console.log("clicked on a course on the admin dashboard!!");
+                this.capture('google.png');
+                startTime = new Date().getTime();
+            //});
     		});
-    });
+
+            casper.waitUntilVisible(".lpn_name a",  function() {
+                var currentURL = casper.getCurrentUrl();
+                this.capture('google1.png');
+                this.thenClick(".lpn_name a");
+                casper.wait(350,function(){
+                    this.capture('google2.png');
+                    console.log("clicked on the chapter!! waiting for the sub-chapter or the chapter content!!");
+                    try
+                    {
+                        this.test.assertExists(".lpn a", "Good, the input item actually exist");
+                        casper.waitUntilVisible(".lpn_name a",  function() {
+                            console.log("There was a sublink");
+                            this.capture('google2.png');
+                        }, function timeout(){
+                            console.log("setTimeout for the second link");
+                        }, 10000);
+                    }
+                    catch(err)
+                    {   //ereader_iframe
+                        casper.waitUntilVisible(".ereader_iframe",function(){
+                            this.capture("testIFrame.png");
+                            casper.page.switchToChildFrame("1_NB_Main_IFrame");
+                            console.log(casper.page.focusedFrameName);
+                            
+                            casper.waitUntilVisible(".chapNum", function(){
+                                try
+                                {
+                                    casper.test.assertExists(".chapNum", "we switched to the iframe!!");
+                                    casper.capture("afterFrameLoad.png");
+                                    endTime = new Date().getTime();
+                                    console.log("Reading activity load time, hard coded right now - (get back to Giorgio: )")
+                                    console.log(endTime - startTime);
+                                }
+                                catch(err)
+                                {
+                                    console.log("We couldn't switch!!");
+                                }
+                            }, function timeout(){
+                                console.log("There was a timeOut sir, the resource took more than 10sec to load!!");
+                            }, 10000);
+                            
+                            
+                        }, function timeout(){
+                            console.log("timeout for ereader");
+                            casper.capture("afterFrameLoad.png");
+                        }, 10000);
+                        
+
+                        
+                    }
+                    
+                });
+                
+            });
+            
 
 
-    casper.then(function(){
-        this.test.assertExists(".lpn_name","The sublinks are available");
-        this.thenClick(".lpn_name a");
-        console.log("passed!!");
-    });
+
+    // casper.then(function(){
+    //     this.test.assertExists(".lpn_name","The sublinks are available");
+    //     //this.thenClick(".lpn_name a");
+    //     utils.dump(this.getElementsInfo(".lpn_name a"));
+    //     console.log("passed!!");
+    // });
 
     casper.run();
 

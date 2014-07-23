@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="/Users/aayush/Downloads" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="/Users/aayush/Desktop/repos/MindtapHealthCheck-UsingSelenium/flow/selenium-2.42.2/libs" key="org.eclipse.jdt.ui.lastextjar"/>
+	<section name="FatJarPackageWizard">
+		<item value="/Users/aayush/Desktop/repos/MindtapHealthCheck-UsingSelenium/dbConnectivity" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
+		<item value="DbConnectivity - mongodbConnectivity" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="/Users/aayush/Desktop/mindappSelenium.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
+		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
+		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="/Users/aayush/Desktop/mindappSelenium.jar"/>
+			<item value="/Users/aayush/Desktop/mindappSelenium.jar;*.jar;*.zip"/>
+			<item value="/Users/aayush/Desktop/mindappSelenium/mindappSelenium.jar;*.jar;*.zip"/>
+		</list>
+		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="/Users/aayush/Desktop/repos/MindtapHealthCheck-UsingSelenium/dbConnectivity.xml"/>
+			<item value=".xml"/>
+		</list>
+	</section>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item value="2" key="layout"/>
 		<item value="true" key="group_libraries"/>
