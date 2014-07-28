@@ -1,0 +1,22 @@
+
+
+public class MindAppTesting{ 
+	public static void main(String[] args) throws Exception {
+
+		try
+		{
+
+			System.setProperty("webdriver.chrome.driver", "//Users/mindtap/Desktop/Selenium1/chromedriver");
+
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("-incognito");
+			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+			WebDriver ghostdriver = new ChromeDriver(capabilities);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+}

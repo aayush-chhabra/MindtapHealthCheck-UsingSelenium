@@ -41,5 +41,7 @@
 	<classpathentry kind="lib" path="/Users/mindtap/Documents/flow/selenium-2.42.2/libs/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="lib" path="/Users/mindtap/Documents/flow/selenium-2.42.2/selenium-java-2.42.2-srcs.jar"/>
 	<classpathentry kind="lib" path="/Users/mindtap/Documents/flow/selenium-2.42.2/selenium-java-2.42.2.jar"/>
+	<classpathentry kind="lib" path="/Users/mindtap/Downloads/mongo-java-driver-2.12.3-javadoc.jar"/>
+	<classpathentry kind="lib" path="/Users/mindtap/Downloads/mongo-2.10.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

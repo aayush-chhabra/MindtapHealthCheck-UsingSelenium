@@ -1,16 +1,16 @@
-import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
-import javax.script.*;
-
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.Set.*;
 
 public class openReader{ 
 	public static void main(String[] args) throws Exception {
@@ -287,9 +287,7 @@ public class openReader{
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 			
-			Thread.sleep(4000);
 			List<WebElement> chapterLinks  = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("lpn_thumbTitle")));
-			System.out.println(chapterLinks);
 			Random randomChapter = new Random();	
 			chapterLinks.get(randomChapter.nextInt(chapterLinks.size())).click();
 			System.out.println("------------------------------------------------------------------------------------------------ \n");
@@ -375,7 +373,6 @@ public class openReader{
 
 			// ----------------------------------------------------------------------------------------------------------------------------------------------
 			
-			Thread.sleep(4000);
 			List<WebElement> subChapterLinks  = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("lpn_thumbTitle")));
 			Random randomSubChapter = new Random();
 			subChapterLinks.get(randomSubChapter.nextInt(subChapterLinks.size())).click();

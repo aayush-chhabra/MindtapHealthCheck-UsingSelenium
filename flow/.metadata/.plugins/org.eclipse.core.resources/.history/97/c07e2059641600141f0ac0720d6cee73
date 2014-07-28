@@ -1,0 +1,53 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class MindAppTesting{ 
+	public static void main(String[] args) throws Exception {
+
+		try
+		{
+
+			System.setProperty("webdriver.chrome.driver", "//Users/mindtap/Desktop/Selenium1/chromedriver");
+
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("-incognito");
+			DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+			WebDriver ghostdriver = new ChromeDriver(capabilities);
+			ghostdriver.get("https://login.cengage.com/");
+			WebElement usernameQuery = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='emailId']")));
+			usernameQuery.sendKeys("mockgeyser.slave@gmail.com");
+			WebElement passwordQuery = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='password']")));
+			passwordQuery.sendKeys("DASHBOARD1234");
+			WebElement loginButton = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfElementLocated(By.xpath(".//*[@id='loginFormId']/input[3]")));
+			loginButton.click();
+			List<WebElement> courseLinks = ghostdriver.findElements(By.className("viewDetailsBtn"));
+			courseLinks.get(0).click();	
+			ArrayList<String> tabs = new ArrayList<String> (ghostdriver.getWindowHandles());
+			ghostdriver.switchTo().window(tabs.get(1));
+			Thread.sleep(4000);
+			List<WebElement> chapterLinks  = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("lpn_thumbTitle")));
+			Random randomChapter = new Random();	
+			chapterLinks.get(randomChapter.nextInt(chapterLinks.size())).click();
+			List<WebElement> subChapterLinks  = (new WebDriverWait(ghostdriver, 15)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.className("lpn_thumbTitle")));
+			Random randomSubChapter = new Random();
+			subChapterLinks.get(randomSubChapter.nextInt(subChapterLinks.size())).click();
+		
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+}
